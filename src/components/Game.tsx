@@ -56,13 +56,20 @@ export default function Game() {
   return (
     <div className="game">
       {winner ? (
-        <div className="winner">
-          <p>The winner is: {winner}</p>
+        <div className="reset">
+          <p>The winner is {winner}</p>
           <button onClick={resetGame}>Reset Game</button>
         </div>
       ) : (
         <div>
-          <p>Player turn: {isPlayerOne ? "X" : "O"}</p>
+          {squares.every((sq) => !!sq) ? (
+            <div className="reset">
+              <p>No winner, play again!</p>
+              <button onClick={resetGame}>Reset Game</button>
+            </div>
+          ) : (
+            <p>Player turn: {isPlayerOne ? "X" : "O"}</p>
+          )}
         </div>
       )}
       <Board squares={squares} onClick={handleClick} />

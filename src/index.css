@@ -35,6 +35,7 @@ code {
   background-color: rgb(197, 197, 197);
 }
 
-.winner {
+.winner,
+.reset {
   padding: 12px;
 }
